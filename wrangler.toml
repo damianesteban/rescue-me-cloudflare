@@ -1,4 +1,7 @@
 name = "workers-prisma-planetscale"
 compatibility_date = "2022-11-10"
 webpack_config = "webpack.config.js"
+node_compat = true
 
+[vars]
+DATABASE_URL = ""

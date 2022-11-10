@@ -1,18 +1,22 @@
-import { PrismaClient } from '@prisma/client'
+import { PrismaClient } from '@prisma/client/edge'
 const prisma = new PrismaClient()
 import { randFirstName } from '@ngneat/falso';
 
-async function main() {
-  const newRescue = await prisma.rescue.create({
-    data: {
-      name: randFirstName(),
-    }
-  })
 
-  console.log(newRescue)
-}
-
-main().catch(e => {
-  console.error(e)
-  process.exit(1)
+addEventListener('fetch', event => {
+  event.respondWith(handleEvent(event))
 })
+
+async function handleEvent(event: FetchEvent): Promise<Response> {
+  const { request } = event;
+
+  event.waitUntil(
+    prisma.rescue.create({
+      data: {
+        name: randFirstName(),
+      }
+    }).then()
+  )
+
+  return new Response('Rescue Name: ' + randFirstName());
+}
