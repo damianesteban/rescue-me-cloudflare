@@ -2,7 +2,7 @@ name = "workers-prisma-planetscale"
 compatibility_date = "2022-11-10"
 webpack_config = "webpack.config.js"
 node_compat = true
-kv_namespaces = [{ binding = "rescueme", id = "2e17f7edd3fc4dd4822b69100b9a85e5" }]
+kv_namespaces = [{ binding = "rescue-me", id = "2e17f7edd3fc4dd4822b69100b9a85e5" }]
 
 [vars]
 DATABASE_URL = ""
